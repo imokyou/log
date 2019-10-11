@@ -46,3 +46,21 @@
 {"level":"WARN","timestamp":"2019-10-11 15:16:21.893","file":"example/example.go:23","msg":"failed-to-do-somthing","data":{"info":"something"}}
 {"level":"ERROR","timestamp":"2019-10-11 15:16:21.893","file":"example/example.go:28","msg":"failed-to-do-somthing","data":{"error":"This is an error"}}
 {"level":"INFO","timestamp":"2019-10-11 15:16:21.893","file":"example/example.go:30","msg":"shutting-down"}
+{"level":"INFO","timestamp":"2019-10-11 19:57:00.425","file":"example/example.go:14","msg":"Hi paas-bot, system is starting up ..."}
+{"level":"INFO","timestamp":"2019-10-11 19:57:00.427","file":"example/example.go:15","msg":"check-info","data":{"info":"something"}}
+{"level":"DEBUG","timestamp":"2019-10-11 19:57:00.427","file":"example/example.go:19","msg":"check-info","data":{"info":"something"}}
+{"level":"WARN","timestamp":"2019-10-11 19:57:00.427","file":"example/example.go:23","msg":"failed-to-do-somthing","data":{"info":"something"}}
+{"level":"ERROR","timestamp":"2019-10-11 19:57:00.427","file":"example/example.go:28","msg":"failed-to-do-somthing","data":{"error":"This is an error"}}
+{"level":"INFO","timestamp":"2019-10-11 19:57:00.428","file":"example/example.go:30","msg":"shutting-down"}
+{"level":"INFO","timestamp":"2019-10-11 19:57:14.757","file":"example/example.go:14","msg":"Hi paas-bot, system is starting up ..."}
+{"level":"INFO","timestamp":"2019-10-11 19:57:14.757","file":"example/example.go:15","msg":"check-info","data":{"info":"something"}}
+{"level":"DEBUG","timestamp":"2019-10-11 19:57:14.757","file":"example/example.go:19","msg":"check-info","data":{"info":"something"}}
+{"level":"WARN","timestamp":"2019-10-11 19:57:14.757","file":"example/example.go:23","msg":"failed-to-do-somthing","data":{"info":"something"}}
+{"level":"ERROR","timestamp":"2019-10-11 19:57:14.757","file":"example/example.go:28","msg":"failed-to-do-somthing","data":{"error":"This is an error"}}
+{"level":"INFO","timestamp":"2019-10-11 19:57:14.757","file":"example/example.go:30","msg":"shutting-down"}
+{"level":"INFO","timestamp":"2019-10-11 19:58:02.141","file":"example/example.go:14","msg":"Hi paas-bot, system is starting up ..."}
+{"level":"INFO","timestamp":"2019-10-11 19:58:02.142","file":"example/example.go:15","msg":"check-info","data":{"info":"something"}}
+{"level":"DEBUG","timestamp":"2019-10-11 19:58:02.142","file":"example/example.go:19","msg":"check-info","data":{"info":"something"}}
+{"level":"WARN","timestamp":"2019-10-11 19:58:02.142","file":"example/example.go:23","msg":"failed-to-do-somthing","data":{"info":"something"}}
+{"level":"ERROR","timestamp":"2019-10-11 19:58:02.142","file":"example/example.go:28","msg":"failed-to-do-somthing","data":{"error":"This is an error"}}
+{"level":"INFO","timestamp":"2019-10-11 19:58:02.142","file":"example/example.go:30","msg":"shutting-down"}

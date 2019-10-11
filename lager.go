@@ -2,7 +2,6 @@ package log
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -74,7 +73,6 @@ func Initialize(writers, loggerLevel, loggerFile string, rollingDisable bool, ro
 
 	Logger = newLog(lag)
 	if rollingDisable == false {
-		fmt.Println("ababaab")
 		initLogRotate(logFilePath, lag)
 	}
 	return
