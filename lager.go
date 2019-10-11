@@ -152,7 +152,7 @@ func createLogFile(localPath, outputpath string) {
 		fmt.Println(err)
 		fmt.Println(os.IsNotExist(err))
 
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND|os.O_WRONLY, os.ModePerm)
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_WRONLY, os.ModePerm)
 		fmt.Println(f, err)
 		if err != nil {
 			panic(err)
@@ -160,7 +160,7 @@ func createLogFile(localPath, outputpath string) {
 		defer f.Close()
 	} else {
 		fmt.Println("3333333")
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_WRONLY, os.ModePerm)
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND|os.O_WRONLY, os.ModePerm)
 		fmt.Println(f, err)
 		if err != nil {
 			panic(err)

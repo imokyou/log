@@ -36,6 +36,7 @@ func EscapPath(msg string) string {
 }
 
 func removeFile(path string) error {
+	return nil
 	fileInfo, err := os.Stat(path)
 	if err != nil {
 		return err
