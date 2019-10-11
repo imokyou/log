@@ -144,7 +144,7 @@ func createLogFile(localPath, outputpath string) {
 		panic(err)
 	}
 	if _, err := os.Stat(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1));  err != nil || os.IsNotExist(err) {
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE, os.ModePerm)
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_WRONLY, os.ModePerm)
 		if err != nil {
 			panic(err)
 		}
