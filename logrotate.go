@@ -211,7 +211,7 @@ func logRotateFile(file string, MaxFileSize int, MaxBackupCount int) {
 			Logger.Errorf(nil, "LogRotate file path: %s catch an exception.", EscapPath(file))
 		}
 	}()
-	
+
 	doRollover(file, MaxFileSize, MaxBackupCount)
 	doBackup(file, MaxBackupCount)
 }
