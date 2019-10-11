@@ -2,6 +2,7 @@ package log
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -83,6 +84,7 @@ func newLog(lag *Lager) lager.Logger {
 	checkPassLagerDefinition(lag)
 
 	if filepath.IsAbs(lag.LoggerFile) {
+		fmt.Println("q1q1q1q1q1q1")
 		createLogFile("", lag.LoggerFile)
 		logFilePath = filepath.Join("", lag.LoggerFile)
 	} else {
@@ -139,18 +141,27 @@ func checkPassLagerDefinition(lag *Lager) {
 func createLogFile(localPath, outputpath string) {
 	_, err := os.Stat(strings.Replace(filepath.Dir(filepath.Join(localPath, outputpath)), "\\", "/", -1))
 	if err != nil && os.IsNotExist(err) {
+		fmt.Println("111111111")
+		fmt.Println(err)
 		os.MkdirAll(strings.Replace(filepath.Dir(filepath.Join(localPath, outputpath)), "\\", "/", -1), os.ModePerm)
 	} else if err != nil {
 		panic(err)
 	}
 	if _, err := os.Stat(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1));  err != nil || os.IsNotExist(err) {
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_WRONLY, os.ModePerm)
+		fmt.Println("22222222")
+		fmt.Println(err)
+		fmt.Println(os.IsNotExist(err))
+
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND|os.O_WRONLY, os.ModePerm)
+		fmt.Println(f, err)
 		if err != nil {
 			panic(err)
 		}
 		defer f.Close()
 	} else {
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND, os.ModePerm)
+		fmt.Println("3333333")
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_WRONLY, os.ModePerm)
+		fmt.Println(f, err)
 		if err != nil {
 			panic(err)
 		}
