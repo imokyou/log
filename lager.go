@@ -143,16 +143,19 @@ func createLogFile(localPath, outputpath string) {
 	} else if err != nil {
 		panic(err)
 	}
-	// f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE, os.ModePerm)
-
-	f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND, os.ModePerm)
-	if err != nil && os.IsNotExist(err) {
-		f, err = os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE, os.ModePerm)
+	if _, err := os.Stat(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1));  err != nil || os.IsNotExist(err) {
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE, os.ModePerm)
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
+	} else {
+		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND, os.ModePerm)
+		if err != nil {
+			panic(err)
+		}
+		defer f.Close()
 	}
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
 }
 
 // readPassLagerConfigFile is unmarshal the paas lager configuration file(lager.yaml)

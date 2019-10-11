@@ -212,8 +212,8 @@ func logRotateFile(file string, MaxFileSize int, MaxBackupCount int) {
 		}
 	}()
 
-	doRollover(file, MaxFileSize, MaxBackupCount)
-	doBackup(file, MaxBackupCount)
+	// doRollover(file, MaxFileSize, MaxBackupCount)
+	// doBackup(file, MaxBackupCount)
 }
 
 // LogRotate function for log rotate
