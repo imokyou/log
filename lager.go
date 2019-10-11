@@ -103,6 +103,11 @@ func newLog(lag *Lager) lager.Logger {
 	})
 
 	logger := NewLogger(lag.LoggerFile)
+
+	fileInfo, _ := os.Stat(lag.LoggerFile)
+	fmt.Println("fileInfo #3")
+	fmt.Println(fileInfo.Size(), fileInfo)
+
 	return logger
 }
 
@@ -208,6 +213,10 @@ func Init() error {
 		PassLagerDefinition.LoggerFile, PassLagerDefinition.RollingDisable, PassLagerDefinition.RollingPolicy,
 		PassLagerDefinition.LogFormatText, PassLagerDefinition.LogRotateDate,
 		PassLagerDefinition.LogRotateSize, PassLagerDefinition.LogBackupCount)
+
+	fileInfo, _ := os.Stat(PassLagerDefinition.LoggerFile)
+	fmt.Println("fileInfo #4")
+	fmt.Println(fileInfo.Size(), fileInfo)
 
 	return nil
 }
