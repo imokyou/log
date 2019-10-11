@@ -57,6 +57,7 @@ writers: file,stdout
 logger_level: DEBUG
 logger_file: logs/log.log
 log_format_text: false
+rollingDisable: false
 rollingPolicy: size # size, daily
 log_rotate_date: 1
 log_rotate_size: 1
@@ -69,6 +70,7 @@ log_backup_count: 7
 + `logger_level`: 日志级别，DEBUG, INFO, WARN, ERROR, FATAL
 + `logger_file`: 日志文件
 + `log_format_text`: 日志的输出格式，json或者plaintext，`true`会输出成json格式，`false`会输出成非json格式
++ `rollingDisable`: 是否禁用rotate机制
 + `rollingPolicy`: rotate依据，可选的有：daily, size。如果选daily则根据天进行转存，如果是size则根据大小进行转存
 + `log_rotate_date`: rotate转存时间，配合`rollingPolicy: daily`使用
 + `log_rotate_size`: rotate转存大小，配合`rollingPolicy: size`使用
