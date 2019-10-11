@@ -74,7 +74,7 @@ func Initialize(writers, loggerLevel, loggerFile string, rollingDisable bool, ro
 
 	Logger = newLog(lag)
 	if rollingDisable == false {
-		initLogRotate(logFilePath, lag)
+		// initLogRotate(logFilePath, lag)
 	}
 	return
 }
@@ -147,26 +147,15 @@ func createLogFile(localPath, outputpath string) {
 	} else if err != nil {
 		panic(err)
 	}
-	if _, err := os.Stat(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1));  err != nil || os.IsNotExist(err) {
-		fmt.Println("22222222")
-		fmt.Println(err)
-		fmt.Println(os.IsNotExist(err))
+	f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_APPEND|os.O_RDWR, os.ModePerm)
+	fileInfo, _ := os.Stat(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1))
+	fmt.Println("fileInfo")
+	fmt.Println(fileInfo.Size(), fileInfo)
 
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_CREATE|os.O_WRONLY, os.ModePerm)
-		fmt.Println(f, err)
-		if err != nil {
-			panic(err)
-		}
-		defer f.Close()
-	} else {
-		fmt.Println("3333333")
-		f, err := os.OpenFile(strings.Replace(filepath.Join(localPath, outputpath), "\\", "/", -1), os.O_APPEND|os.O_WRONLY, os.ModePerm)
-		fmt.Println(f, err)
-		if err != nil {
-			panic(err)
-		}
-		defer f.Close()
+	if err != nil {
+		panic(err)
 	}
+	defer f.Close()
 }
 
 // readPassLagerConfigFile is unmarshal the paas lager configuration file(lager.yaml)

@@ -36,7 +36,6 @@ func EscapPath(msg string) string {
 }
 
 func removeFile(path string) error {
-	return nil
 	fileInfo, err := os.Stat(path)
 	if err != nil {
 		return err
@@ -223,6 +222,8 @@ func logRotateFile(file string, MaxFileSize int, MaxBackupCount int) {
 // MaxBackupCount: 	Max counts to keep of a log's backup files.
 func LogRotate(path string, MaxFileSize int, MaxBackupCount int) {
 	//filter .log .trace files
+	return
+
 	defer func() {
 		if e := recover(); e != nil {
 			Logger.Errorf(nil, "LogRotate catch an exception")

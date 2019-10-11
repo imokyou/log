@@ -91,8 +91,11 @@ func LagerInit(c Config) {
 	var err error
 	if config.LoggerFile != "" {
 		fmt.Println("44444444444")
-		file, err = os.OpenFile(config.LoggerFile, os.O_APPEND|os.O_WRONLY, os.ModePerm)
-		fmt.Println(file, err)
+		file, err = os.OpenFile(config.LoggerFile, os.O_APPEND|os.O_RDWR, os.ModePerm)
+
+		fileInfo, _ := os.Stat(config.LoggerFile)
+		fmt.Println("fileInfo #2")
+		fmt.Println(fileInfo.Size(), fileInfo)
 		if err != nil {
 			panic(err)
 		}
